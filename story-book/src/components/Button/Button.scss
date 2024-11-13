@@ -1,0 +1,54 @@
+$color-blue: #007bff;
+$color-red: #dc3545;
+$color-green: #28a745;
+
+$colors: (
+  blue: $color-blue,
+  red: $color-red,
+  green: $color-green,
+);
+
+.button {
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s, color 0.3s;
+  border-radius: 4px;
+
+  &.small {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  &.medium {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+  &.large {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+  }
+
+  @each $color-name, $color-value in $colors {
+    &.primary.#{$color-name} {
+      background-color: $color-value;
+      border: 1px solid $color-value;
+      color: white;
+    }
+
+    &.secondary.#{$color-name} {
+      background-color: white;
+      border: 1px solid $color-value;
+      color: $color-value;
+    }
+
+    &.text.#{$color-name} {
+      background-color: transparent;
+      border: none;
+      color: $color-value;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
